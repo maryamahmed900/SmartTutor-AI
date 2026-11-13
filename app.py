@@ -132,6 +132,10 @@ if user_prompt:
                     {"role": "assistant", "content": assistant_reply}
                 )
 
+
+
+
+            
             except Exception as error:
     st.error(f"Something went wrong: {error}")
                          
