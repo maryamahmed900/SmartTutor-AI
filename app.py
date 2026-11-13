@@ -120,4 +120,23 @@ if user_prompt:
 
             except Exception as error:
                 st.error(f"Something went wrong: {error}")
+import streamlit as st
+
+# ===== ACCESS CONTROL =====
+CORRECT_PASSWORD = "studymate123"  # <-- yahan apna password rakh lo
+
+if "access" not in st.session_state:
+    st.session_state.access = False
+
+if not st.session_state.access:
+    st.title("🔒 StudyMate AI - Private")
+    pwd = st.text_input("Access Password likho:", type="password")
+    if st.button("Enter"):
+        if pwd == CORRECT_PASSWORD:
+            st.session_state.access = True
+            st.rerun()
+        else:
+            st.error("Ghalat password hai!")
+    st.stop()
+# ===== ACCESS CONTROL END =====
 
