@@ -134,6 +134,7 @@ if user_prompt:
 
             except Exception as error:
                 st.error(f"Something went wrong: {error}"
-
+st.error(f"Something went wrong: {error}")
+                         
 
 
