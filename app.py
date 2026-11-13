@@ -117,22 +117,22 @@ if user_prompt:
     ] + st.session_state.messages
 
     with st.chat_message("assistant"):
-        with st.spinner("StudyMate is thinking..."):
-            try:
-                response = client.chat.completions.create(
-                    model=MODEL_NAME,
-                    messages=api_messages,
-                    temperature=temperature,
-                    max_tokens=max_tokens,
-                )
-                assistant_reply = response.choices[0].message.content
-                st.markdown(assistant_reply)
+    with st.spinner("StudyMate is thinking..."):
+        try:
+            response = client.chat.completions.create(
+                model=MODEL_NAME,
+                messages=api_messages,
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+            assistant_reply = response.choices[0].message.content
+            st.markdown(assistant_reply)
 
-                st.session_state.messages.append(
-                    {"role": "assistant", "content": assistant_reply}
-                )
-except Exception as e:
-    st.error(f"Something went wrong: {e}")
+            st.session_state.messages.append(
+                {"role": "assistant", "content": assistant_reply}
+            )
+        except Exception as e:
+            st.error(f"Something went wrong: {e}")
             
             
 
