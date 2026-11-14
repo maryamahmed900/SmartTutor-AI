@@ -115,8 +115,8 @@ if user_prompt:
     api_messages = [
         {"role": "system", "content": SYSTEM_PROMPT}
     ] + st.session_state.messages
-        with st.chat_message("assistant"):
-            with st.spinner("StudyMate is thinking..."):
+     with st.chat_message("assistant"):
+        with st.spinner("StudyMate is thinking..."):
                 try:
                     response = client.chat.completions.create(
                         model=MODEL_NAME,
